@@ -29,6 +29,13 @@ export default function NotePreview() {
           <div className={css.item}>
             <div className={css.header}>
               <h2>{note.title}</h2>
+              <button
+                type="button"
+                className={css.backBtn}
+                onClick={() => router.back()}
+              >
+                Back
+              </button>
             </div>
             <p className={css.tag}>{note.tag}</p>
             <p className={css.content}>{note.content}</p>
