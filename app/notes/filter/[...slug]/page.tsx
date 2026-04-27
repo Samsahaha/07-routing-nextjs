@@ -5,14 +5,14 @@ import { fetchNotes } from "@/lib/api";
 import { NOTE_TAGS, NoteTag } from "@/types/note";
 
 interface FilterNotesPageProps {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ slug: string[] }>;
   searchParams: Promise<{ page?: string; search?: string }>;
 }
 
 const PER_PAGE = 12;
 
-const resolveTag = (slug?: string[]): NoteTag | undefined => {
-  const rawTag = slug?.[0];
+const resolveTag = (slug: string[]): NoteTag | undefined => {
+  const rawTag = slug[0];
 
   if (!rawTag || rawTag === "all") {
     return undefined;
