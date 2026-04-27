@@ -3,14 +3,13 @@ import type { Note, NoteTag } from "@/types/note";
 
 const BASE_URL = "https://notehub-public.goit.study/api";
 const noteHubToken = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-const isServer = typeof window === "undefined";
 
 const notesClient = axios.create({
-  baseURL: isServer ? BASE_URL : "/api",
+  baseURL: BASE_URL,
 });
 
 notesClient.interceptors.request.use((config) => {
-  if (isServer && noteHubToken) {
+  if (noteHubToken) {
     config.headers.Authorization = `Bearer ${noteHubToken}`;
   }
 
